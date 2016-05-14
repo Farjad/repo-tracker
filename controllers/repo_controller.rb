@@ -1,5 +1,3 @@
-require 'pry'
-require 'byebug'
 class App < Sinatra::Application
   get '/Repos' do
     content_type :json

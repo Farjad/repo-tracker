@@ -3,6 +3,7 @@ gem 'sinatra'
 gem 'sequel'
 gem 'sequel_pg'
 gem 'json'
+gem 'git_clone_url'
 
 
 

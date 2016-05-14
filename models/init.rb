@@ -6,3 +6,4 @@ DB << "SET CLIENT_ENCODING TO 'UTF8';"
 
 require_relative 'repo'
 require_relative 'repo_commit'
+require_relative 'image'
