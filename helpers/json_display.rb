@@ -1,8 +1,8 @@
 module JsonDisplay
 	def json_display(sequel_data)
-		if sequel_data.is_a?(Array)
+		if sequel_data.is_a?(Array) && sequel_data.any?
 			output = sequel_data.map { |row| row.to_hash }
-		elsif !sequel_data.nil? && !sequel_data.is_a?(Numeric) && !sequel_data.is_a?(Hash)
+		elsif !sequel_data.nil? && !sequel_data.is_a?(Numeric) && !sequel_data.is_a?(Hash) && !sequel_data.is_a?(Array)
 			output = sequel_data.to_hash
 		elsif sequel_data == 400
 			status 400

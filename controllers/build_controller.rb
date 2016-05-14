@@ -1,8 +1,23 @@
 require 'git_clone_url'
-require 'pry'
 
 class App < Sinatra::Application
   post '/build' do
+    data = do_creation
+
+    json_display data
+  end
+
+  post '/complete' do
+    data = do_creation
+
+    data.update(:complete => :true) unless data == 400
+
+    json_display data
+  end
+
+  private
+
+  def do_creation
     request.body.rewind
     data = parse_json(request.body.read)
 
@@ -20,14 +35,8 @@ class App < Sinatra::Application
       end
     end
 
-    json_display data
+    data
   end
-
-  post '/complete' do
-
-  end
-
-  private
 
   def get_git_path(repo_url)
     url = GitCloneUrl.parse(repo_url)
